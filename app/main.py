@@ -1,5 +1,7 @@
 from fastapi import FastAPI
 
+from app.db.create_db import create_all_tables
+
 app = FastAPI()
 
 
@@ -8,6 +10,8 @@ async def root():
     return {"message": "Hello World"}
 
 
-@app.get("/hello/{name}")
-async def say_hello(name: str):
-    return {"message": f"Hello {name}"}
+if __name__ == "__main__":
+    import uvicorn
+
+    create_all_tables()
+    uvicorn.run("app.main:app", host="127.0.0.1", port=8000, reload=True)
