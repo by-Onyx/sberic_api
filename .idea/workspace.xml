@@ -4,28 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="873b5df6-021f-4bea-a4b9-b230461139bc" name="Changes" comment="complete app.db.model and project architecture.">
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/db/alembic/files/insert_data.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/db/alembic/files/truncate_data.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/db/run_migrations.py" afterDir="false" />
+    <list default="true" id="873b5df6-021f-4bea-a4b9-b230461139bc" name="Changes" comment="add migration with mock data">
+      <change afterPath="$PROJECT_DIR$/app/db/alembic.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/db/alembic/README" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/db/alembic/env.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/db/alembic/script.py.mako" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/db/alembic/versions/53f9524db6cb_insert_data.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/db/alembic/versions/a6a9f1e40973_create_tables.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/db/create_db.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/db/create_db.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/db/models/character.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/db/models/character.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/db/models/character_clothes.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/db/models/character_clothes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/db/models/character_type.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/db/models/character_type.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/db/models/clothes.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/db/models/clothes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/db/models/clothes_type.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/db/models/clothes_type.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/db/models/location.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/db/models/location.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/db/models/location_type.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/db/models/location_type.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/db/models/transaction_type.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/db/models/transaction_type.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/db/models/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/db/models/user.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/db/models/user_character.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/db/models/user_character.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/db/models/user_clothes.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/db/models/user_clothes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/db/models/user_location.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/db/models/user_location.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/db/models/user_transactions.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/db/models/user_transactions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -278,6 +264,7 @@
       <workItem from="1728993612669" duration="1541000" />
       <workItem from="1729359530985" duration="6084000" />
       <workItem from="1729439603332" duration="9641000" />
+      <workItem from="1730010006065" duration="347000" />
     </task>
     <task id="LOCAL-00001" summary="Init">
       <option name="closed" value="true" />
@@ -295,7 +282,15 @@
       <option name="project" value="LOCAL" />
       <updated>1728845054319</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="add migration with mock data">
+      <option name="closed" value="true" />
+      <created>1730010315497</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1730010315497</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -304,7 +299,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Init" />
     <MESSAGE value="complete app.db.model and project architecture." />
-    <option name="LAST_COMMIT_MESSAGE" value="complete app.db.model and project architecture." />
+    <MESSAGE value="add migration with mock data" />
+    <option name="LAST_COMMIT_MESSAGE" value="add migration with mock data" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Sberic_api$Sberic_api.coverage" NAME="Sberic_api Coverage Results" MODIFIED="1728319407450" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
