@@ -1,6 +1,6 @@
-from sqlalchemy import Column, Integer, Text, SMALLINT, Numeric
+from sqlalchemy import Column, Integer, Text, SMALLINT, Numeric, TIMESTAMP, text
 
-from ..database import Base
+from app.db.database import Base
 
 
 class User(Base):
@@ -11,3 +11,4 @@ class User(Base):
     password = Column(Text, nullable=False)
     age = Column(SMALLINT, nullable=False)
     balance = Column(Numeric(10, 2), nullable=False)
+    creation_date = Column(TIMESTAMP, nullable=False, server_default=text('CURRENT_TIMESTAMP'))

@@ -4,33 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="873b5df6-021f-4bea-a4b9-b230461139bc" name="Changes" comment="Init">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/db/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/db/create_db.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/db/models/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/db/models/character.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/db/models/character_clothes.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/db/models/character_type.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/db/models/clothes.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/db/models/clothes_type.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/db/models/location.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/db/models/location_type.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/db/models/transaction_type.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/db/models/user.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/db/models/user_character.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/db/models/user_clothes.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/db/models/user_location.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/db/models/user_transactions.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/repository/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/routes/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/service/__init__.py" afterDir="false" />
+    <list default="true" id="873b5df6-021f-4bea-a4b9-b230461139bc" name="Changes" comment="complete app.db.model and project architecture.">
+      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/db/alembic/files/insert_data.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/db/alembic/files/truncate_data.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/db/run_migrations.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Sberic_api.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Sberic_api.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/db/database.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/db/database.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/db/create_db.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/db/create_db.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/db/models/character.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/db/models/character.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/db/models/character_clothes.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/db/models/character_clothes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/db/models/character_type.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/db/models/character_type.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/db/models/clothes.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/db/models/clothes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/db/models/clothes_type.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/db/models/clothes_type.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/db/models/location.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/db/models/location.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/db/models/location_type.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/db/models/location_type.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/db/models/transaction_type.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/db/models/transaction_type.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/db/models/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/db/models/user.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/db/models/user_character.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/db/models/user_character.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/db/models/user_clothes.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/db/models/user_clothes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/db/models/user_location.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/db/models/user_location.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/db/models/user_transactions.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/db/models/user_transactions.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -59,7 +53,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/by-Onyx/Sberic_api.git&quot;,
-    &quot;accountId&quot;: &quot;7bbaf4cc-8332-479a-ac1f-48c77eadb8bb&quot;
+    &quot;accountId&quot;: &quot;48d46aa6-1861-440d-a150-6a21b423fc00&quot;
   }
 }</component>
   <component name="ProjectColorInfo">{
@@ -73,43 +67,49 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "FastAPI.Sberic_api.executor": "Run",
-    "HTTP Request.test_main | #2.executor": "Run",
-    "Python.__init__ (1).executor": "Run",
-    "Python.__init__.executor": "Run",
-    "Python.database (1).executor": "Debug",
-    "Python.database.executor": "Run",
-    "Python.main (1).executor": "Run",
-    "Python.main.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "G:/PyProjects/Sberic_api/app/db/entities",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "editor.preferences.import",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;FastAPI.Sberic_api.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.test_main | #2.executor&quot;: &quot;Run&quot;,
+    &quot;Python.__init__ (1).executor&quot;: &quot;Run&quot;,
+    &quot;Python.__init__.executor&quot;: &quot;Run&quot;,
+    &quot;Python.create_db.executor&quot;: &quot;Run&quot;,
+    &quot;Python.database (1).executor&quot;: &quot;Debug&quot;,
+    &quot;Python.database.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main (1).executor&quot;: &quot;Run&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.run_migrations.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;G:/PyProjects/Sberic_api/app/db/migrations&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.import&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "postgresql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="G:\PyProjects\Sberic_api\app\db\migrations" />
       <recent name="G:\PyProjects\Sberic_api\app\db\entities" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="G:\PyProjects\Sberic_api\app\db\alembic" />
+      <recent name="G:\PyProjects\Sberic_api\app\db" />
+      <recent name="G:\PyProjects\Sberic_api\app\api" />
       <recent name="G:\PyProjects\Sberic_api\app" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.main">
+  <component name="RunManager" selected="Python.run_migrations">
     <configuration name="__init__ (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Sberic_api" />
       <option name="ENV_FILES" value="" />
@@ -133,7 +133,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="__init__" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="create_db" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Sberic_api" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -142,12 +142,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/app/db/entities" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/app/db" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/app/db/entities/__init__.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/app/db/create_db.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -179,29 +179,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="main (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="Sberic_api" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/app/db/entities" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/app/db/entities/main.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Sberic_api" />
       <option name="ENV_FILES" value="" />
@@ -217,6 +194,29 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/app/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="run_migrations" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Sberic_api" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/app/db" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/app/db/run_migrations.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -242,11 +242,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.run_migrations" />
         <item itemvalue="Python.main" />
+        <item itemvalue="Python.create_db" />
         <item itemvalue="Python.database (1)" />
         <item itemvalue="Python.__init__ (1)" />
-        <item itemvalue="Python.__init__" />
-        <item itemvalue="Python.main (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -273,7 +273,11 @@
       <workItem from="1728796948320" duration="7220000" />
       <workItem from="1728832102379" duration="1054000" />
       <workItem from="1728838738608" duration="2000" />
-      <workItem from="1728839005668" duration="5611000" />
+      <workItem from="1728839005668" duration="5956000" />
+      <workItem from="1728930616189" duration="3922000" />
+      <workItem from="1728993612669" duration="1541000" />
+      <workItem from="1729359530985" duration="6084000" />
+      <workItem from="1729439603332" duration="9641000" />
     </task>
     <task id="LOCAL-00001" summary="Init">
       <option name="closed" value="true" />
@@ -283,7 +287,15 @@
       <option name="project" value="LOCAL" />
       <updated>1728358212332</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="complete app.db.model and project architecture.">
+      <option name="closed" value="true" />
+      <created>1728845054319</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1728845054319</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -291,14 +303,17 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Init" />
-    <option name="LAST_COMMIT_MESSAGE" value="Init" />
+    <MESSAGE value="complete app.db.model and project architecture." />
+    <option name="LAST_COMMIT_MESSAGE" value="complete app.db.model and project architecture." />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Sberic_api$Sberic_api.coverage" NAME="Sberic_api Coverage Results" MODIFIED="1728319407450" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/Sberic_api$run_migrations.coverage" NAME="run_migrations Coverage Results" MODIFIED="1729452277353" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app/db" />
     <SUITE FILE_PATH="coverage/Sberic_api$__init__.coverage" NAME="__init__ Coverage Results" MODIFIED="1728413486054" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app/db/entities" />
     <SUITE FILE_PATH="coverage/Sberic_api$__init____1_.coverage" NAME="__init__ (1) Coverage Results" MODIFIED="1728413971275" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app/db" />
+    <SUITE FILE_PATH="coverage/Sberic_api$create_db.coverage" NAME="create_db Coverage Results" MODIFIED="1729364687818" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app/db" />
     <SUITE FILE_PATH="coverage/Sberic_api$main__1_.coverage" NAME="main (1) Coverage Results" MODIFIED="1728413457718" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app/db/entities" />
-    <SUITE FILE_PATH="coverage/Sberic_api$main.coverage" NAME="main Coverage Results" MODIFIED="1728843803783" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app" />
+    <SUITE FILE_PATH="coverage/Sberic_api$main.coverage" NAME="main Coverage Results" MODIFIED="1729364712561" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app" />
     <SUITE FILE_PATH="coverage/Sberic_api$database__1_.coverage" NAME="database (1) Coverage Results" MODIFIED="1728414055750" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app/db" />
     <SUITE FILE_PATH="coverage/Sberic_api$database.coverage" NAME="database Coverage Results" MODIFIED="1728322172381" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app/core" />
   </component>
