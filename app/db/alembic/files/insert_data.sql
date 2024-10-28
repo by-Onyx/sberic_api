@@ -18,10 +18,10 @@ values (1, 'Hat'),
        (3, 'Pants');
 
 insert into location (id, name, price, file_name, type_id)
-values (1, 'База', 0, 'base_location.jpg', 1);
+values (1, 'Base', 0, 'base_location.jpg', 1);
 
 insert into character (id, name, character_type_id, happiness_percent)
-values (1, 'Сусел', 1, 70);
+values (1, 'Sberic', 1, 70);
 
 insert into clothes (id, name, price, file_name, clothes_type_id)
 values (1, 'Base hat', 150.00, 'base_hat.jpg', 1),
