@@ -60,7 +60,7 @@ async def get_clothes_by_character_id(user_id: int, character_id: int, db: Sessi
 
 
 @router.get('/{user_id}/character/{character_id}/clothes/{clothes_id}', response_model=Clothes)
-async def get_clothes_by_user_id(user_id: int, character_id: int, clothes_id: int, db: Session = Depends(get_db)):
+async def get_clothes_by_character_id(user_id: int, character_id: int, clothes_id: int, db: Session = Depends(get_db)):
     clothes = __user_service.get_user_character_clothes_by_id(db=db, user_id=user_id, character_id=character_id,
                                                               clothes_id=clothes_id)
     if clothes is None:

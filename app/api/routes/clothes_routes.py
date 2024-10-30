@@ -13,12 +13,12 @@ __clothes_service = ClothesService()
 
 
 @router.get('/', response_model=List[Clothes])
-async def get_locations(skip: int = 0, limit: int = 1000, db: Session = Depends(get_db)):
+async def get_clothes(skip: int = 0, limit: int = 1000, db: Session = Depends(get_db)):
     return __clothes_service.get_all_clothes(db=db, skip=skip, limit=limit)
 
-@router.get('/{location_id}', response_model=Clothes)
-async def get_location_by_id(location_id: int, db: Session = Depends(get_db)):
-    clothes = __clothes_service.get_clothes_by_id(db=db, location_id=location_id)
+@router.get('/{clothes_id}', response_model=Clothes)
+async def get_clothes_by_id(clothes_id: int, db: Session = Depends(get_db)):
+    clothes = __clothes_service.get_clothes_by_id(db=db, clothes_id=clothes_id)
     if clothes is None:
         raise HTTPException(status_code=404, detail='Clothes not found')
     return clothes

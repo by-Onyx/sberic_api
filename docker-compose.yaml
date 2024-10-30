@@ -12,17 +12,17 @@ services:
     volumes:
       - ./postgres-db:/var/lib/postgresql/data
 
-#  python-for-kotlin:
-#    build:
-#      context: .
-#      dockerfile: Dockerfile
-#    restart: on-failure
-#    ports:
-#      - '1337:1337'
-#    links:
-#      - postgres-for-kotlin
-#    depends_on:
-#      - postgres-for-kotlin
+  python-for-sberic:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: on-failure
+    ports:
+      - '8000:8000'
+    links:
+      - postgres-for-sberic
+    depends_on:
+      - postgres-for-sberic
 
 
 volumes:
