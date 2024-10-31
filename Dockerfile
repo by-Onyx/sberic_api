@@ -18,4 +18,4 @@ COPY . /back
 
 RUN chmod +x /back/wait-for-it.sh
 
-CMD /back/wait-for-it.sh postgres-for-sberic:5432 && cd /back/app/db && python run_migrations.py && exec uvicorn app.main:app --host 0.0.0.0 --port 8000
+CMD /back/wait-for-it.sh postgres-for-sberic:5432 && cd /back/app/db && python run_migrations.py && cd .. && python main.py
