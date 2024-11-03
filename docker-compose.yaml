@@ -4,26 +4,43 @@ services:
   postgres-for-sberic:
     image: postgres:latest
     container_name: sberic-pg
+    restart: on-failure
     ports:
       - '5432:5432'
-    restart: on-failure
     env_file:
       - .env
     volumes:
-      - ./postgres-db:/var/lib/postgresql/data
+      - ./postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $POSTGRES_USER"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
 
   python-for-sberic:
     build:
       context: .
       dockerfile: Dockerfile
+    container_name: sberic-py
     restart: on-failure
     ports:
       - '8000:8000'
-    links:
-      - postgres-for-sberic
     depends_on:
-      - postgres-for-sberic
+      postgres-for-sberic:
+        condition: service_healthy
 
+  minio-for-sberic:
+    image: minio/minio
+    container_name: sberic-minio
+    restart: on-failure
+    ports:
+      - '9000:9000'
+      - '9001:9001'
+    command: server /data --console-address ":9001"
+    env_file:
+      - .env
+    volumes:
+      - ./minio-data:/data
 
 volumes:
-  postgres-db:
+  postgres-data:
