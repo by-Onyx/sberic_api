@@ -1,11 +1,19 @@
+import sys
 import os
+
+from dotenv import load_dotenv
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../..')))
+
 from logging.config import fileConfig
 
 from alembic import context
 from sqlalchemy import engine_from_config
 from sqlalchemy import pool
 
-from app.db.database import Base
+from app.db.database import Base, DATABASE_URL
+
+load_dotenv()
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
@@ -16,7 +24,7 @@ config = context.config
 if config.config_file_name is not None:
     fileConfig(config.config_file_name)
 
-database_url = os.getenv("DATABASE_URL_ALEMBIC")
+database_url = DATABASE_URL
 
 if not database_url:
     raise ValueError("DATABASE_URL не установлена или пуста в файле .env")

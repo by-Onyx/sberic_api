@@ -1,10 +1,6 @@
 import subprocess
 
-from dotenv import load_dotenv
-
 from app.db.file_manager.minio_migration import migration as minio_migration
-
-load_dotenv()
 
 try:
     # subprocess.run(["alembic", "revision", "--autogenerate", "-m", "add_"])

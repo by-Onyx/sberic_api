@@ -15,3 +15,9 @@ class ClothesService:
 
     def get_clothes_by_id(self, db: Session, clothes_id: int) -> Optional[Clothes]:
         return self.__clothes_repository.get(db=db, id=clothes_id)
+
+    def get_clothes_price(self, db: Session, clothes_id: int) -> Optional[float]:
+        price = self.__clothes_repository.get_clothes_price(db=db, clothes_id=clothes_id)
+        if price is None:
+            raise Exception('Clothes not found')
+        return price

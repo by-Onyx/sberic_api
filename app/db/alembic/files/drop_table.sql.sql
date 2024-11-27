@@ -1,4 +1,4 @@
-TRUNCATE TABLE
+DROP TABLE IF EXISTS
     user_location,
     user_clothes,
     user_character,
@@ -9,3 +9,8 @@ TRUNCATE TABLE
     character,
     purpose,
     "user";
+
+drop type character_enum;
+drop type clothes_enum;
+drop type location_enum;
+drop type transaction_enum;

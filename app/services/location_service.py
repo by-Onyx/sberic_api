@@ -15,3 +15,9 @@ class LocationService:
 
     def get_location_by_id(self, db: Session, location_id: int) -> Optional[Location]:
         return self.__location_repository.get(db=db, id=location_id)
+
+    def get_location_price(self, db: Session, location_id: int) -> Optional[float]:
+        price = self.__location_repository.get_location_price(db=db, location_id=location_id)
+        if price is None:
+            raise Exception("Location not found")
+        return price

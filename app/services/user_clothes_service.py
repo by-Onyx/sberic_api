@@ -15,3 +15,6 @@ class UserClothesService:
 
     def is_user_clothes_exist(self, db: Session, user_id: int, clothes_id: int) -> bool:
         return self.__user_clothes_repository.is_user_clothes_exists(db=db, user_id=user_id, clothes_id=clothes_id)
+
+    def add_user_clothes(self, db: Session, user_id: int, clothes_id: int) -> None:
+        self.__user_clothes_repository.add_user_clothes(db=db, user_id=user_id, clothes_id=clothes_id)

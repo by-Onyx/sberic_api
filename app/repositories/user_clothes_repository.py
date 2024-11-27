@@ -13,3 +13,7 @@ class UserClothesRepository:
 
     def is_user_clothes_exists(self, db: Session, user_id: int, clothes_id: int) -> bool:
         return db.query(UserClothes).filter_by(clothes_id=clothes_id, user_id=user_id).first() is not None
+
+    def add_user_clothes(self, db: Session, user_id: int, clothes_id: int) -> None:
+        db.add(UserClothes(user_id=user_id, clothes_id=clothes_id))
+        db.commit()

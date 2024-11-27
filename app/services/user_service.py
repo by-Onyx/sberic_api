@@ -1,19 +1,22 @@
+from fastapi import HTTPException
 from typing import Optional, List
 
 from sqlalchemy.orm import Session
 
-from app.api.routes.clothes_routes import __clothes_service
 from app.db.models.user import User
 from app.repositories.user_repository import UserRepository
 from app.schemas.character import Character
 from app.schemas.clothes import Clothes
 from app.schemas.location import Location
+from app.schemas.purpose import Purpose
 from app.services.character_service import CharacterService
 from app.services.clothes_service import ClothesService
 from app.services.location_service import LocationService
+from app.services.purpose_service import PurposeService
 from app.services.user_character_service import UserCharacterService
 from app.services.user_clothes_service import UserClothesService
 from app.services.user_location_service import UserLocationService
+from app.services.user_transactions_service import UserTransactionsService
 
 
 class UserService:
@@ -24,9 +27,11 @@ class UserService:
         self.__character_service = CharacterService()
         self.__clothes_service = ClothesService()
         self.__character_service = CharacterService()
+        self.__purpose_service = PurposeService()
         self.__user_location_service = UserLocationService()
         self.__user_character_service = UserCharacterService()
         self.__user_clothes_service = UserClothesService()
+        self.__user_transactions_service = UserTransactionsService()
 
     def get_user_by_id(self, db: Session, user_id: int) -> Optional[User]:
         return self.__user_repository.get(db=db, id=user_id)
@@ -36,14 +41,17 @@ class UserService:
         return [location for location_id in location_ids if
                 (location := self.__location_service.get_location_by_id(db=db, location_id=location_id)) is not None]
 
+    def get_user_location_by_id(self, db: Session, user_id: int, location_id: int) -> Optional[Location]:
+        return self.__location_service.get_location_by_id(db=db, location_id=location_id);
+
     def get_user_characters(self, db: Session, user_id: int) -> List[Character]:
         character_ids = self.__user_character_service.get_character_ids_by_user_id(db=db, user_id=user_id)
         return [character for character_id in character_ids if
-                (character := self.__character_service.get_character_by_id(db=db, character_id=character_id)) is not None]
+                (character := self.__character_service.get_character_by_id(db=db,
+                                                                           character_id=character_id)) is not None]
 
     def get_user_character_by_id(self, db: Session, user_id: int, character_id: int) -> Optional[Character]:
-        is_exists = self.__user_character_service.is_user_character_exist(db=db, user_id=user_id, character_id=character_id)
-        return self.__character_service.get_character_by_id(db=db, character_id=character_id) if is_exists else None
+        return self.__character_service.get_character_by_id(db=db, character_id=character_id)
 
     def get_user_clothes(self, db: Session, user_id: int) -> List[Clothes]:
         clothes_ids = self.__user_clothes_service.get_clothes_ids_by_user_id(db=db, user_id=user_id)
@@ -51,15 +59,134 @@ class UserService:
                 (clothes := self.__clothes_service.get_clothes_by_id(db=db, clothes_id=clothes_id))]
 
     def get_user_clothes_by_id(self, db: Session, user_id: int, clothes_id: int) -> Optional[Character]:
-        is_exists = self.__user_clothes_service.is_user_clothes_exist(db=db, user_id=user_id, clothes_id=clothes_id)
-        return self.__clothes_service.get_clothes_by_id(db=db, clothes_id=clothes_id) if is_exists else None
+        return self.__clothes_service.get_clothes_by_id(db=db, clothes_id=clothes_id)
 
     def get_user_character_clothes(self, db: Session, user_id: int, character_id: int) -> List[Clothes]:
-        is_exists = self.__user_character_service.is_user_character_exist(db=db, user_id=user_id, character_id=character_id)
-        return self.__character_service.get_character_clothes(db=db, character_id=character_id) if is_exists else None
+        return self.__character_service.get_character_clothes(db=db, character_id=character_id)
 
-    def get_user_character_clothes_by_id(self, db: Session, user_id: int, character_id: int, clothes_id: int) -> Optional[Character]:
+    def get_user_character_clothes_by_id(self, db: Session, user_id: int, character_id: int, clothes_id: int) -> \
+            Optional[Character]:
+        return self.__character_service.get_character_clothes_by_id(db=db, character_id=character_id,
+                                                                    clothes_id=clothes_id)
+
+    def purchase_clothes(self, db: Session, user_id: int, clothes_id: int) -> float:
+        balance = self.__user_repository.get_user_game_balance(db=db, user_id=user_id)
+        if balance is None:
+            raise HTTPException(status_code=400, detail="User not found")
+
+        if self.__user_clothes_service.is_user_clothes_exist(db=db, user_id=user_id, clothes_id=clothes_id):
+            raise HTTPException(status_code=409, detail="Clothes already purchased")
+
+        price = self.__clothes_service.get_clothes_price(db=db, clothes_id=clothes_id)
+        if balance < price:
+            raise HTTPException(status_code=402, detail="Not enough money")
+
+        try:
+            self.__user_clothes_service.add_user_clothes(db=db, user_id=user_id, clothes_id=clothes_id)
+            current_balance = float(balance) - price
+            self.__user_repository.set_user_game_balance(db=db, user_id=user_id, balance=current_balance)
+        except Exception as e:
+            raise HTTPException(status_code=500, detail=f"Transaction failed: {str(e)}")
+
+        return current_balance
+
+    def purchase_location(self, db: Session, user_id: int, location_id: int) -> float:
+        balance = self.__user_repository.get_user_game_balance(db=db, user_id=user_id)
+        if balance is None:
+            raise HTTPException(status_code=400, detail="User not found")
+
+        if self.__user_location_service.is_user_location_exist(db=db, user_id=user_id, location_id=location_id):
+            raise HTTPException(status_code=409, detail="Location already purchased")
+
+        price = self.__location_service.get_location_price(db=db, location_id=location_id)
+        if balance < price:
+            raise HTTPException(status_code=402, detail="Not enough money")
+
+        try:
+            self.__user_location_service.add_user_location(db=db, user_id=user_id, location_id=location_id)
+            current_balance = float(balance) - price
+            self.__user_repository.set_user_game_balance(db=db, user_id=user_id, balance=current_balance)
+        except Exception as e:
+            raise HTTPException(status_code=500, detail=f"Transaction failed: {str(e)}")
+
+        return current_balance
+
+    def set_active_character(self, db: Session, user_id: int, character_id: int) -> Optional[Character]:
         is_exists = self.__user_character_service.is_user_character_exist(db=db, user_id=user_id,
                                                                           character_id=character_id)
-        return self.__character_service.get_character_clothes_by_id(db=db, character_id=character_id,
-                                                                    clothes_id=clothes_id) if is_exists else None
+
+        self.__user_character_service.set_active_user_character(db=db, user_id=user_id, character_id=character_id)
+
+        return self.__character_service.get_character_by_id(db=db, character_id=character_id) if is_exists else None
+
+    def set_active_location(self, db: Session, user_id: int, location_id: int) -> Optional[Location]:
+        is_exists = self.__user_location_service.is_user_location_exist(db=db, user_id=user_id,
+                                                                        location_id=location_id)
+
+        self.__user_location_service.set_active_user_location(db=db, user_id=user_id, location_id=location_id)
+
+        return self.__location_service.get_location_by_id(db=db, location_id=location_id) if is_exists else None
+
+    def get_incomplete_purposes(self, db: Session, user_id: int) -> List[Purpose]:
+        return self.__purpose_service.get_incomplete_purposes(db=db, user_id=user_id)
+
+    def get_complete_purposes(self, db: Session, user_id: int) -> List[Purpose]:
+        return self.__purpose_service.get_complete_purposes(db=db, user_id=user_id)
+
+    def create_purpose(self, db: Session, user_id: int, name: str, price: float) -> Optional[Purpose]:
+        return self.__purpose_service.create_purpose(db=db, user_id=user_id, name=name, price=price)
+
+    def add_accumulation(self, db: Session, user_id, purpose_id: int, accumulation: float) -> Optional[Purpose]:
+        balance = self.__user_repository.get_user_real_balance(db=db, user_id=user_id)
+        if balance is None:
+            raise HTTPException(status_code=400, detail="User not found")
+
+        purpose = self.__purpose_service.get_purpose_by_id(db=db, purpose_id=purpose_id)
+        if purpose is None:
+            raise HTTPException(status_code=404, detail="Purpose not found")
+
+        try:
+            remains = purpose.price - purpose.accumulated
+            if remains > accumulation:
+                purpose = self.__purpose_service.add_accumulation(db=db, purpose_id=purpose_id, accumulation=accumulation)
+                current_balance = float(balance) - accumulation
+                self.__user_repository.set_user_real_balance(db=db, user_id=user_id, balance=current_balance)
+            else:
+                purpose = self.__purpose_service.complete_purpose(db=db, purpose_id=purpose_id, accumulation=remains)
+                current_balance = balance - remains
+                self.__user_repository.set_user_real_balance(db=db, user_id=user_id, balance=current_balance)
+
+            return purpose
+        except Exception as e:
+            raise HTTPException(status_code=500, detail=f"Transaction failed: {str(e)}")
+
+    def delete_purpose(self, db: Session, user_id: int, purpose_id: int) -> Optional[Purpose]:
+        balance = self.__user_repository.get_user_real_balance(db=db, user_id=user_id)
+        if balance is None:
+            raise HTTPException(status_code=400, detail="User not found")
+
+        try:
+            purpose = self.__purpose_service.delete_purpose(db=db, purpose_id=purpose_id)
+            if purpose is None:
+                raise HTTPException(status_code=404, detail="Purpose not found")
+
+            current_balance = float(balance) + purpose.accumulated
+            self.__user_repository.set_user_real_balance(db=db, user_id=user_id, balance=current_balance)
+            return purpose
+        except Exception as e:
+            raise HTTPException(status_code=500, detail=f"Transaction failed: {str(e)}")
+
+    def add_balance(self, db: Session, user_id: int, balance: float) -> Optional[User]:
+        real_balance = self.__user_repository.get_user_real_balance(db=db, user_id=user_id)
+        if real_balance is None:
+            raise HTTPException(status_code=400, detail="User not found")
+
+        game_balance = self.__user_repository.get_user_game_balance(db=db, user_id=user_id)
+        if game_balance is None:
+            raise HTTPException(status_code=400, detail="User not found")
+
+        try:
+            self.__user_repository.set_user_game_balance(db=db, user_id=user_id, balance=balance + float(game_balance))
+            return self.__user_repository.set_user_real_balance(db=db, user_id=user_id, balance=balance + float(real_balance))
+        except Exception as e:
+            raise HTTPException(status_code=500, detail=f"Transaction failed: {str(e)}")
