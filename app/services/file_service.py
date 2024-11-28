@@ -1,5 +1,4 @@
-from app.db.file_manager.minio_connection import minio_client
-from app.db.file_manager.test import BUCKET_NAME
+from app.db.file_manager.minio_connection import minio_client, BUCKET_NAME
 
 
 class FileService:
