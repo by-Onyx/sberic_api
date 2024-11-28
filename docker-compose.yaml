@@ -17,17 +17,17 @@ services:
       timeout: 5s
       retries: 5
 
-  python-for-sberic:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    container_name: sberic-py
-    restart: on-failure
-    ports:
-      - '8000:8000'
-    depends_on:
-      postgres-for-sberic:
-        condition: service_healthy
+#  python-for-sberic:
+#    build:
+#      context: .
+#      dockerfile: Dockerfile
+#    container_name: sberic-py
+#    restart: on-failure
+#    ports:
+#      - '8000:8000'
+#    depends_on:
+#      postgres-for-sberic:
+#        condition: service_healthy
 
   minio-for-sberic:
     image: minio/minio

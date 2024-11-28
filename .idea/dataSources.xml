@@ -8,5 +8,12 @@
       <jdbc-url>jdbc:postgresql://localhost:5432/sberic_db</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
+    <data-source source="LOCAL" name="sberic_db@45.130.146.174" uuid="7f953820-7904-4860-b21b-0c2852ec607d">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://45.130.146.174:5432/sberic_db</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
   </component>
 </project>
