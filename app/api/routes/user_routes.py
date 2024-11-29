@@ -151,7 +151,7 @@ async def get_user_purpose_complete(user_id: int, db: Session = Depends(get_db))
     return __user_service.get_complete_purposes(db=db, user_id=user_id)
 
 
-@router.post('/{user_id}', response_model=float)
+@router.post('/{user_id}/balance', response_model=float)
 async def add_user_balance(user_id: int, user_balance: UserBalance, db: Session = Depends(get_db)):
     balance = __user_service.add_balance(db=db, user_id=user_id, balance=user_balance.balance)
     if balance is None:
