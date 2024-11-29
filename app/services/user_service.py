@@ -83,7 +83,7 @@ class UserService:
 
         try:
             self.__user_clothes_service.add_user_clothes(db=db, user_id=user_id, clothes_id=clothes_id)
-            current_balance = float(balance) - price
+            current_balance = float(balance) - float(price)
             self.__user_repository.set_user_game_balance(db=db, user_id=user_id, balance=current_balance)
         except Exception as e:
             raise HTTPException(status_code=500, detail=f"Transaction failed: {str(e)}")
@@ -104,7 +104,7 @@ class UserService:
 
         try:
             self.__user_location_service.add_user_location(db=db, user_id=user_id, location_id=location_id)
-            current_balance = float(balance) - price
+            current_balance = float(balance) - float(price)
             self.__user_repository.set_user_game_balance(db=db, user_id=user_id, balance=current_balance)
         except Exception as e:
             raise HTTPException(status_code=500, detail=f"Transaction failed: {str(e)}")
@@ -119,6 +119,11 @@ class UserService:
 
         return self.__character_service.get_character_by_id(db=db, character_id=character_id) if is_exists else None
 
+    def get_active_character(self, db: Session, user_id: int) -> Optional[Character]:
+        character_id = self.__user_character_service.get_active_user_character(db=db, user_id=user_id)
+
+        return self.__character_service.get_character_by_id(db=db, character_id=character_id)
+
     def set_active_location(self, db: Session, user_id: int, location_id: int) -> Optional[Location]:
         is_exists = self.__user_location_service.is_user_location_exist(db=db, user_id=user_id,
                                                                         location_id=location_id)
@@ -126,6 +131,11 @@ class UserService:
         self.__user_location_service.set_active_user_location(db=db, user_id=user_id, location_id=location_id)
 
         return self.__location_service.get_location_by_id(db=db, location_id=location_id) if is_exists else None
+
+    def get_active_location(self, db: Session, user_id: int) -> Optional[Location]:
+        location_id = self.__user_location_service.get_active_user_location(db=db, user_id=user_id)
+
+        return self.__location_service.get_location_by_id(db=db, location_id=location_id)
 
     def get_incomplete_purposes(self, db: Session, user_id: int) -> List[Purpose]:
         return self.__purpose_service.get_incomplete_purposes(db=db, user_id=user_id)
@@ -149,11 +159,11 @@ class UserService:
             remains = purpose.price - purpose.accumulated
             if remains > accumulation:
                 purpose = self.__purpose_service.add_accumulation(db=db, purpose_id=purpose_id, accumulation=accumulation)
-                current_balance = float(balance) - accumulation
+                current_balance = float(balance) - float(accumulation)
                 self.__user_repository.set_user_real_balance(db=db, user_id=user_id, balance=current_balance)
             else:
                 purpose = self.__purpose_service.complete_purpose(db=db, purpose_id=purpose_id, accumulation=remains)
-                current_balance = balance - remains
+                current_balance = float(balance) - float(remains)
                 self.__user_repository.set_user_real_balance(db=db, user_id=user_id, balance=current_balance)
 
             return purpose
@@ -170,7 +180,7 @@ class UserService:
             if purpose is None:
                 raise HTTPException(status_code=404, detail="Purpose not found")
 
-            current_balance = float(balance) + purpose.accumulated
+            current_balance = float(balance) + float(purpose.accumulated)
             self.__user_repository.set_user_real_balance(db=db, user_id=user_id, balance=current_balance)
             return purpose
         except Exception as e:

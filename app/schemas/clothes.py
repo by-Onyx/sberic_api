@@ -14,3 +14,7 @@ class Clothes(BaseModel):
     y: Optional[float]
     width: Optional[float]
     height: Optional[float]
+
+    model_config = {
+        'from_attributes': True
+    }
