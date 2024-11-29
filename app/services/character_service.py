@@ -27,7 +27,19 @@ class CharacterService:
         return [clothes for clothes_id in clothes_ids if
                 (clothes := self.__clothes_service.get_clothes_by_id(db=db, clothes_id=clothes_id))]
 
-    def get_character_clothes_by_id(self, db: Session, character_id: int, clothes_id: int) -> Optional[Character]:
+    def get_character_clothes_by_id(self, db: Session, character_id: int, clothes_id: int) -> Optional[Clothes]:
         is_exists = self.__character_clothes_service.is_character_clothes_exist(db=db, character_id=character_id,
                                                                                 clothes_id=clothes_id)
         return self.__clothes_service.get_clothes_by_id(db=db, clothes_id=clothes_id) if is_exists else None
+
+    def change_character_clothes(self, db: Session, character_id: int, clothes_id: int) -> Optional[Clothes]:
+        new_clothes = self.__clothes_service.get_clothes_by_id(db=db, clothes_id=clothes_id)
+        clothes = self.get_character_clothes(db=db, character_id=character_id)
+
+        for clothe in clothes:
+            if clothe.type == new_clothes.type:
+                self.__character_clothes_service.delete_character_clothes(db=db, character_id=character_id, clothes_id=clothe.id)
+
+        self.__character_clothes_service.set_character_clothes(db=db, character_id=character_id, clothes_id=clothes_id)
+
+        return new_clothes

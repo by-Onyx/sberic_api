@@ -1,6 +1,6 @@
 create type character_enum as enum ('gopher');
 
-create type clothes_enum as enum ('hat', 'shirt', 'scarf');
+create type clothes_enum as enum ('hat', 'shirt', 'accessories', 'shoes');
 
 create type location_enum as enum ('ground', 'underwater', 'aerial', 'space');
 

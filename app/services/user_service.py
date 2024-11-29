@@ -200,3 +200,6 @@ class UserService:
             return self.__user_repository.set_user_real_balance(db=db, user_id=user_id, balance=balance + float(real_balance))
         except Exception as e:
             raise HTTPException(status_code=500, detail=f"Transaction failed: {str(e)}")
+
+    def change_character_clothes(self, db: Session, character_id: int, clothes_id: int) -> Optional[Clothes]:
+        return self.__character_service.change_character_clothes(db=db, character_id=character_id, clothes_id=clothes_id)

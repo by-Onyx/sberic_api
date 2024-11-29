@@ -126,6 +126,14 @@ async def get_clothes_by_character_id(user_id: int, character_id: int, clothes_i
     return clothes
 
 
+@router.post('/{user_id}/character/{character_id}/clothes/{clothes_id}', response_model=Clothes)
+async def change_character_clothes(user_id: int, character_id: int, clothes_id: int, db: Session = Depends(get_db)):
+    clothes = __user_service.change_character_clothes(db=db, character_id=character_id,
+                                                              clothes_id=clothes_id)
+    if clothes is None:
+        raise HTTPException(status_code=404, detail='User character clothes not found')
+    return clothes
+
 @router.post('/{user_id}/purpose', response_model=Purpose)
 async def create_purpose(user_id: int, purpose: PurposeCreate, db: Session = Depends(get_db)):
     return __user_service.create_purpose(db=db, user_id=user_id, name=purpose.name, price=purpose.price)
