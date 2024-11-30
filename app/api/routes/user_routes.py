@@ -125,6 +125,10 @@ async def get_clothes_by_character_id(user_id: int, character_id: int, clothes_i
         raise HTTPException(status_code=404, detail='User character clothes not found')
     return clothes
 
+@router.delete('/{user_id}/character/{character_id}/clothes/{clothes_id}', response_model=bool)
+async def delete_character_clothes(user_id: int, character_id: int, clothes_id: int, db: Session = Depends(get_db)):
+    return __user_service.delete_character_clothes(db=db, character_id=character_id, clothes_id=clothes_id)
+
 
 @router.post('/{user_id}/character/{character_id}/clothes/{clothes_id}', response_model=Clothes)
 async def change_character_clothes(user_id: int, character_id: int, clothes_id: int, db: Session = Depends(get_db)):

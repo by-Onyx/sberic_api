@@ -203,3 +203,6 @@ class UserService:
 
     def change_character_clothes(self, db: Session, character_id: int, clothes_id: int) -> Optional[Clothes]:
         return self.__character_service.change_character_clothes(db=db, character_id=character_id, clothes_id=clothes_id)
+
+    def delete_character_clothes(self, db: Session, character_id: int, clothes_id: int) -> bool:
+        return self.__character_service.delete_character_clothes(db=db, character_id=character_id, clothes_id=clothes_id)

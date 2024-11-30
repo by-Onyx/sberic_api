@@ -19,5 +19,6 @@ class CharacterClothesRepository:
         return db.query(CharacterClothes).filter_by(clothes_id=clothes_id, character_id=character_id).first() is not None
 
     def delete_character_clothes(self, db: Session, character_id: int, clothes_id: int) -> int:
-        db.query(CharacterClothes).filter_by(clothes_id=clothes_id, character_id=character_id).delete()
+        row_count = db.query(CharacterClothes).filter_by(clothes_id=clothes_id, character_id=character_id).delete()
         db.commit()
+        return row_count

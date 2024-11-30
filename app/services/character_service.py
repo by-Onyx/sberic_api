@@ -43,3 +43,8 @@ class CharacterService:
         self.__character_clothes_service.set_character_clothes(db=db, character_id=character_id, clothes_id=clothes_id)
 
         return new_clothes
+
+    def delete_character_clothes(self, db: Session, character_id: int, clothes_id: int) -> bool:
+        row_count = self.__character_clothes_service.delete_character_clothes(db=db, character_id=character_id,
+                                                                  clothes_id=clothes_id)
+        return True if row_count > 0 else False
