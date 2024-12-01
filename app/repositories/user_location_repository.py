@@ -1,8 +1,6 @@
 from typing import List, Optional
 
 from sqlalchemy.orm import Session
-from sqlalchemy.testing import fails
-from websockets.version import commit
 
 from app.db.models.user_location import UserLocation
 

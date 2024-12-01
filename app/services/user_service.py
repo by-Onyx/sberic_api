@@ -149,7 +149,7 @@ class UserService:
     def add_accumulation(self, db: Session, user_id, purpose_id: int, accumulation: float) -> Optional[Purpose]:
         balance = self.__user_repository.get_user_real_balance(db=db, user_id=user_id)
         if balance is None:
-            raise HTTPException(status_code=400, detail="User not found")
+            raise HTTPException(status_code=404, detail="User not found")
 
         purpose = self.__purpose_service.get_purpose_by_id(db=db, purpose_id=purpose_id)
         if purpose is None:
@@ -158,11 +158,12 @@ class UserService:
         try:
             remains = purpose.price - purpose.accumulated
             if remains > accumulation:
-                purpose = self.__purpose_service.add_accumulation(db=db, purpose_id=purpose_id, accumulation=accumulation)
+                new_accumulation_remains = float(accumulation) + float(purpose.accumulated)
+                purpose = self.__purpose_service.add_accumulation(db=db, purpose_id=purpose_id, accumulation=new_accumulation_remains)
                 current_balance = float(balance) - float(accumulation)
                 self.__user_repository.set_user_real_balance(db=db, user_id=user_id, balance=current_balance)
             else:
-                purpose = self.__purpose_service.complete_purpose(db=db, purpose_id=purpose_id, accumulation=remains)
+                purpose = self.__purpose_service.complete_purpose(db=db, purpose_id=purpose_id, accumulation=purpose.price)
                 current_balance = float(balance) - float(remains)
                 self.__user_repository.set_user_real_balance(db=db, user_id=user_id, balance=current_balance)
 
