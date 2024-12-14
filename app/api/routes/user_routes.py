@@ -16,6 +16,20 @@ router = APIRouter(prefix='/user', tags=['user'])
 
 __user_service = UserService()
 
+@router.get('/{user_id}/login', response_model=UserLoginResponse)
+async def login_user(user_id: int, db: Session = Depends(get_db)):
+    user = __user_service.get_user_by_id(db=db, user_id=user_id)
+
+    if user is None:
+        raise HTTPException(status_code=404, detail='User not found')
+
+    login_user = UserLoginResponse.model_validate(user)
+    login_user.location = __user_service.get_active_location(db=db, user_id=user_id)
+    character = __user_service.get_active_character(db=db, user_id=user_id)
+    login_user.character = CharacterWithClothes.model_validate(character)
+    login_user.character.clothes = __user_service.get_user_character_clothes(db=db, user_id=user_id,
+                                                                             character_id=character.id)
+    return login_user
 
 @router.post('/register', response_model=UserLoginResponse)
 async def register_user(user: UserRegisterRequest, db: Session = Depends(get_db)):
