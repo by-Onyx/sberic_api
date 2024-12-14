@@ -4,73 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="873b5df6-021f-4bea-a4b9-b230461139bc" name="Changes" comment="add .env.exemple">
-      <change afterPath="$PROJECT_DIR$/app/db/alembic/files/create_table.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/db/alembic/files/drop_table.sql.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/db/file_manager/mock_minio_files/hat_cowboy.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/db/file_manager/mock_minio_files/hat_red.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/db/file_manager/mock_minio_files/heaven.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/db/file_manager/mock_minio_files/hell.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/db/file_manager/mock_minio_files/hoodie_green.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/db/file_manager/mock_minio_files/hoodie_red.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/db/file_manager/mock_minio_files/location.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/db/file_manager/mock_minio_files/scarf_green.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/db/file_manager/mock_minio_files/scarf_red.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/db/file_manager/mock_minio_files/shirt_white.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/db/models/enum/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/db/models/enum/character_enum.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/db/models/enum/clothes_enum.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/db/models/enum/location_enum.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/db/models/enum/transaction_enum.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/db/models/purpose.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/repositories/purpose_repository.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/repositories/user_transactions_repository.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/schemas/purpose.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/services/purpose_service.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/services/user_transactions_service.py" afterDir="false" />
+    <list default="true" id="873b5df6-021f-4bea-a4b9-b230461139bc" name="Changes" comment="fix user add_accumulation">
+      <change afterPath="$PROJECT_DIR$/app/services/help_services/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/services/help_services/jwt_service.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/services/help_services/password_service.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.env.exemple" beforeDir="false" afterPath="$PROJECT_DIR$/.env.exemple" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/api/routes/file_routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/routes/file_routes.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/api/routes/user_routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/routes/user_routes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/db/alembic/env.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/db/alembic/env.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/db/alembic/files/insert_data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/app/db/alembic/files/insert_data.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/db/alembic/files/truncate_data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/app/db/alembic/files/truncate_data.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/db/alembic/versions/53f9524db6cb_insert_data.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/db/alembic/versions/a6a9f1e40973_create_tables.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/db/file_manager/minio_migration.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/db/file_manager/minio_migration.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/db/file_manager/mock_minio_files/base_hat.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/db/file_manager/mock_minio_files/hat.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/db/file_manager/mock_minio_files/base_location.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/db/models/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/db/models/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/db/models/character.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/db/models/character.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/db/models/character_type.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/db/models/clothes.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/db/models/clothes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/db/models/clothes_type.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/db/models/location.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/db/models/location.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/db/models/location_type.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/db/models/transaction_type.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/db/models/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/db/models/user.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/db/models/user_character.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/db/models/user_character.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/db/models/user_location.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/db/models/user_location.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/db/models/user_transactions.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/db/models/user_transactions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/db/run_migrations.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/db/run_migrations.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/repositories/clothes_repository.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/repositories/clothes_repository.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/repositories/location_repository.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/repositories/location_repository.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/repositories/user_character_repository.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/repositories/user_character_repository.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/repositories/user_clothes_repository.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/repositories/user_clothes_repository.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/repositories/user_location_repository.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/repositories/user_location_repository.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/repositories/user_repository.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/repositories/user_repository.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/schemas/character.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/schemas/character.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/schemas/clothes.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/schemas/clothes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/schemas/location.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/schemas/location.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/schemas/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/schemas/user.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/services/clothes_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/clothes_service.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/services/location_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/location_service.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/services/user_character_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/user_character_service.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/services/user_clothes_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/user_clothes_service.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/services/user_location_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/user_location_service.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/services/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/services/file_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/help_services/file_service.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/services/user_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/user_service.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,7 +46,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/by-Onyx/Sberic_api.git&quot;,
-    &quot;accountId&quot;: &quot;48d46aa6-1861-440d-a150-6a21b423fc00&quot;
+    &quot;accountId&quot;: &quot;6c37db58-71a3-4e23-ab7b-9064e1a30387&quot;
   }
 }</component>
   <component name="ProjectColorInfo">{
@@ -127,6 +74,7 @@
     &quot;Python.minio.executor&quot;: &quot;Run&quot;,
     &quot;Python.minio_connection.executor&quot;: &quot;Run&quot;,
     &quot;Python.run_migrations.executor&quot;: &quot;Run&quot;,
+    &quot;Python.test.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
@@ -151,11 +99,11 @@
       <recent name="G:\PyProjects\Sberic_api\app\db\entities" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="G:\PyProjects\Sberic_api\app\services\help_services" />
       <recent name="G:\PyProjects\Sberic_api\app\db\file_manager\mock_minio_files" />
       <recent name="G:\PyProjects\Sberic_api\app\db\models\enum" />
       <recent name="G:\PyProjects\Sberic_api\app\db\minio\mock_minio_files" />
       <recent name="G:\PyProjects\Sberic_api\app\db\minio" />
-      <recent name="G:\PyProjects\Sberic_api\app\api" />
     </key>
   </component>
   <component name="RunManager" selected="Python.main">
@@ -174,29 +122,6 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/app/db/create_db.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="database (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="Sberic_api" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/app/db" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/app/db/database.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -274,6 +199,29 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Sberic_api" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/app/db/file_manager" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/app/db/file_manager/test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="Sberic_api" type="Python.FastAPI">
       <option name="file" value="$PROJECT_DIR$/main.py" />
       <module name="Sberic_api" />
@@ -291,11 +239,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.run_migrations" />
         <item itemvalue="Python.main" />
+        <item itemvalue="Python.test" />
+        <item itemvalue="Python.run_migrations" />
         <item itemvalue="Python.minio_connection" />
         <item itemvalue="Python.create_db" />
-        <item itemvalue="Python.database (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -349,7 +297,15 @@
       <workItem from="1732611883448" duration="4454000" />
       <workItem from="1732639634553" duration="14451000" />
       <workItem from="1732683415661" duration="12527000" />
-      <workItem from="1732729925473" duration="1943000" />
+      <workItem from="1732729925473" duration="4505000" />
+      <workItem from="1732814554557" duration="6731000" />
+      <workItem from="1732862423958" duration="6844000" />
+      <workItem from="1732896838892" duration="1574000" />
+      <workItem from="1732900710359" duration="2988000" />
+      <workItem from="1732961598270" duration="3192000" />
+      <workItem from="1733050475390" duration="2807000" />
+      <workItem from="1733767563392" duration="8365000" />
+      <workItem from="1734172682680" duration="580000" />
     </task>
     <task id="LOCAL-00001" summary="Init">
       <option name="closed" value="true" />
@@ -423,7 +379,95 @@
       <option name="project" value="LOCAL" />
       <updated>1730809741249</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="add purpose and refine all architecture">
+      <option name="closed" value="true" />
+      <created>1732732317795</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1732732317795</updated>
+    </task>
+    <task id="LOCAL-00011" summary="change requirements.txt">
+      <option name="closed" value="true" />
+      <created>1732732364769</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1732732364769</updated>
+    </task>
+    <task id="LOCAL-00012" summary="add migration files">
+      <option name="closed" value="true" />
+      <created>1732733627063</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1732733627063</updated>
+    </task>
+    <task id="LOCAL-00013" summary="add get file">
+      <option name="closed" value="true" />
+      <created>1732817419669</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1732817419669</updated>
+    </task>
+    <task id="LOCAL-00014" summary="fixed get file">
+      <option name="closed" value="true" />
+      <created>1732817764811</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1732817764811</updated>
+    </task>
+    <task id="LOCAL-00015" summary="add login route">
+      <option name="closed" value="true" />
+      <created>1732896945751</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1732896945751</updated>
+    </task>
+    <task id="LOCAL-00016" summary="fix balance route">
+      <option name="closed" value="true" />
+      <created>1732900758844</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1732900758844</updated>
+    </task>
+    <task id="LOCAL-00017" summary="add change_character_clothes">
+      <option name="closed" value="true" />
+      <created>1732904591372</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1732904591372</updated>
+    </task>
+    <task id="LOCAL-00018" summary="add delete_character_clothes">
+      <option name="closed" value="true" />
+      <created>1732962322702</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1732962322702</updated>
+    </task>
+    <task id="LOCAL-00019" summary="fix set_active_location">
+      <option name="closed" value="true" />
+      <created>1733051607732</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1733051607732</updated>
+    </task>
+    <task id="LOCAL-00020" summary="fix user add_accumulation">
+      <option name="closed" value="true" />
+      <created>1733053210390</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1733053210390</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -450,7 +494,18 @@
     <MESSAGE value="add requirements.txt" />
     <MESSAGE value="add minio integration" />
     <MESSAGE value="add .env.exemple" />
-    <option name="LAST_COMMIT_MESSAGE" value="add .env.exemple" />
+    <MESSAGE value="add purpose and refine all architecture" />
+    <MESSAGE value="change requirements.txt" />
+    <MESSAGE value="add migration files" />
+    <MESSAGE value="add get file" />
+    <MESSAGE value="fixed get file" />
+    <MESSAGE value="add login route" />
+    <MESSAGE value="fix balance route" />
+    <MESSAGE value="add change_character_clothes" />
+    <MESSAGE value="add delete_character_clothes" />
+    <MESSAGE value="fix set_active_location" />
+    <MESSAGE value="fix user add_accumulation" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix user add_accumulation" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -469,8 +524,9 @@
     <SUITE FILE_PATH="coverage/Sberic_api$__init____1_.coverage" NAME="__init__ (1) Coverage Results" MODIFIED="1728413971275" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app/db" />
     <SUITE FILE_PATH="coverage/Sberic_api$create_db.coverage" NAME="create_db Coverage Results" MODIFIED="1729364687818" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app/db" />
     <SUITE FILE_PATH="coverage/Sberic_api$main__1_.coverage" NAME="main (1) Coverage Results" MODIFIED="1728413457718" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app/db/entities" />
-    <SUITE FILE_PATH="coverage/Sberic_api$main.coverage" NAME="main Coverage Results" MODIFIED="1732699441309" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app" />
+    <SUITE FILE_PATH="coverage/Sberic_api$main.coverage" NAME="main Coverage Results" MODIFIED="1733775483459" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app" />
     <SUITE FILE_PATH="coverage/Sberic_api$database__1_.coverage" NAME="database (1) Coverage Results" MODIFIED="1728414055750" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app/db" />
+    <SUITE FILE_PATH="coverage/Sberic_api$test.coverage" NAME="test Coverage Results" MODIFIED="1732816915795" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app/db/file_manager" />
     <SUITE FILE_PATH="coverage/Sberic_api$database.coverage" NAME="database Coverage Results" MODIFIED="1728322172381" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app/core" />
     <SUITE FILE_PATH="coverage/Sberic_api$minio.coverage" NAME="minio_connection Coverage Results" MODIFIED="1730656890215" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app/db" />
   </component>
