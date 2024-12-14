@@ -48,7 +48,7 @@ class UserService:
         new_user = self.__user_repository.create_user(db=db, login=user.login, password=user.password, age=user.age)
 
         user_response = UserLoginResponse.model_validate(new_user)
-        user_response.access_token = create_access_token(user_id=user.id, login=user.login)
+        user_response.access_token = create_access_token(user_id=new_user.id, login=new_user.login)
 
         return user_response
 
