@@ -56,8 +56,12 @@ class UserService:
             raise HTTPException(status_code=422, detail="Can't create character")
 
         self.__user_character_service.create_user_character(db=db, user_id=new_user.id, character_id=new_character.id)
+        self.__user_location_service.add_user_location_active(db=db, user_id=new_user.id, location_id=1)
 
         user_response = UserLoginResponse.model_validate(new_user)
+        user_response.location = self.get_active_location(db=db, user_id=new_user.id)
+        character = self.get_active_character(db=db, user_id=new_user.id)
+        user_response.character = CharacterWithClothes.model_validate(character)
         user_response.access_token = create_access_token(user_id=new_user.id, login=new_user.login)
 
         return user_response

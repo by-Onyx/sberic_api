@@ -28,3 +28,7 @@ class UserLocationRepository:
     def add_user_location(self, db: Session, user_id: int, location_id: int) -> None:
         db.add(UserLocation(user_id=user_id, location_id=location_id, is_active=False))
         db.commit()
+
+    def add_user_location_active(self, db: Session, user_id: int, location_id: int) -> None:
+        db.add(UserLocation(user_id=user_id, location_id=location_id, is_active=True))
+        db.commit()

@@ -23,3 +23,6 @@ class UserLocationService:
 
     def add_user_location(self, db: Session, user_id: int, location_id: int) -> None:
         self.__user_location_repository.add_user_location(db=db, user_id=user_id, location_id=location_id)
+
+    def add_user_location_active(self, db: Session, user_id: int, location_id: int) -> None:
+        self.__user_location_repository.add_user_location_active(db=db, user_id=user_id, location_id=location_id)
