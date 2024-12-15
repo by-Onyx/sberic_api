@@ -66,7 +66,6 @@ class UserService:
 
         return user_response
 
-
     def login_user(self, db: Session, user_login: UserLoginRequest) -> Optional[UserLoginResponse]:
         user = self.get_user_by_login(db=db, login=user_login.login)
         if user is None:
@@ -84,10 +83,9 @@ class UserService:
         if character is not None:
             user_response.character = CharacterWithClothes.model_validate(character)
             user_response.character.clothes = self.get_user_character_clothes(db=db, user_id=user.id,
-                                                                                     character_id=character.id)
+                                                                              character_id=character.id)
 
         return user_response
-
 
     def get_user_locations(self, db: Session, user_id: int) -> List[Location]:
         location_ids = self.__user_location_service.get_location_ids_by_user_id(db=db, user_id=user_id)
@@ -213,6 +211,9 @@ class UserService:
         balance = self.__user_repository.get_user_real_balance(db=db, user_id=user_id)
         if balance is None:
             raise HTTPException(status_code=404, detail="User not found")
+
+        if accumulation > balance:
+            raise HTTPException(status_code=409, detail="Not enough money")
 
         purpose = self.__purpose_service.get_purpose_by_id(db=db, purpose_id=purpose_id)
         if purpose is None:
