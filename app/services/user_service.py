@@ -47,6 +47,16 @@ class UserService:
         user.password = hash_password(user.password)
         new_user = self.__user_repository.create_user(db=db, login=user.login, password=user.password, age=user.age)
 
+        if new_user is None:
+            raise HTTPException(status_code=422, detail="Can't create user")
+
+        new_character = self.__character_service.create_character(db=db, name=new_user.login)
+
+        if new_character is None:
+            raise HTTPException(status_code=422, detail="Can't create character")
+
+        self.__user_character_service.create_user_character(db=db, user_id=new_user.id, character_id=new_character.id)
+
         user_response = UserLoginResponse.model_validate(new_user)
         user_response.access_token = create_access_token(user_id=new_user.id, login=new_user.login)
 

@@ -3,6 +3,7 @@ from typing import List, Optional
 from sqlalchemy.orm import Session
 
 from app.db.models.character import Character
+from app.db.models.enum.character_enum import CharacterEnum
 from app.repositories.character_repository import CharacterRepository
 from app.schemas.clothes import Clothes
 from app.services.character_clothes_service import CharacterClothesService
@@ -21,6 +22,9 @@ class CharacterService:
 
     def get_character_by_id(self, db: Session, character_id: int) -> Optional[Character]:
         return self.__character_repository.get(db=db, id=character_id)
+
+    def create_character(self, db: Session, name: str) -> Optional[Character]:
+        return self.__character_repository.create(db=db, name=name, type=CharacterEnum.gopher, happiness_percent=100)
 
     def get_character_clothes(self, db: Session, character_id: int) -> List[Clothes]:
         clothes_ids = self.__character_clothes_service.get_clothes_ids_by_character_id(db=db, character_id=character_id)

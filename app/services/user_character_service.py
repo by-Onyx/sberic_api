@@ -14,10 +14,14 @@ class UserCharacterService:
         return self.__user_character_repository.get_user_character_ids(db=db, user_id=user_id)
 
     def is_user_character_exist(self, db: Session, user_id: int, character_id: int) -> bool:
-        return self.__user_character_repository.is_user_character_exists(db=db, user_id=user_id, character_id=character_id)
+        return self.__user_character_repository.is_user_character_exists(db=db, user_id=user_id,
+                                                                         character_id=character_id)
 
     def get_active_user_character(self, db: Session, user_id: int) -> Optional[int]:
         return self.__user_character_repository.get_active_user_character(db=db, user_id=user_id)
 
     def set_active_user_character(self, db: Session, user_id: int, character_id: int) -> None:
         self.__user_character_repository.set_active_user_character(db=db, user_id=user_id, character_id=character_id)
+
+    def create_user_character(self, db: Session, user_id: int, character_id: int) -> None:
+        self.__user_character_repository.create_user_character(db=db, user_id=user_id, character_id=character_id)
