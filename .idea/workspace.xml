@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="873b5df6-021f-4bea-a4b9-b230461139bc" name="Changes" comment="add create character on register">
+    <list default="true" id="873b5df6-021f-4bea-a4b9-b230461139bc" name="Changes" comment="add create location on register">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/repositories/user_location_repository.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/repositories/user_location_repository.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/services/user_location_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/user_location_service.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/services/user_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/user_service.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/api/routes/file_routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/routes/file_routes.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -297,7 +295,7 @@
       <workItem from="1733050475390" duration="2807000" />
       <workItem from="1733767563392" duration="8365000" />
       <workItem from="1734172682680" duration="2849000" />
-      <workItem from="1734281753579" duration="2579000" />
+      <workItem from="1734281753579" duration="3753000" />
     </task>
     <task id="LOCAL-00001" summary="Init">
       <option name="closed" value="true" />
@@ -491,7 +489,15 @@
       <option name="project" value="LOCAL" />
       <updated>1734283417095</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="add create location on register">
+      <option name="closed" value="true" />
+      <created>1734284383341</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1734284383341</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -533,7 +539,8 @@
     <MESSAGE value="fix login access_token" />
     <MESSAGE value="add mocked login" />
     <MESSAGE value="add create character on register" />
-    <option name="LAST_COMMIT_MESSAGE" value="add create character on register" />
+    <MESSAGE value="add create location on register" />
+    <option name="LAST_COMMIT_MESSAGE" value="add create location on register" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -552,7 +559,7 @@
     <SUITE FILE_PATH="coverage/Sberic_api$__init____1_.coverage" NAME="__init__ (1) Coverage Results" MODIFIED="1728413971275" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app/db" />
     <SUITE FILE_PATH="coverage/Sberic_api$create_db.coverage" NAME="create_db Coverage Results" MODIFIED="1729364687818" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app/db" />
     <SUITE FILE_PATH="coverage/Sberic_api$main__1_.coverage" NAME="main (1) Coverage Results" MODIFIED="1728413457718" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app/db/entities" />
-    <SUITE FILE_PATH="coverage/Sberic_api$main.coverage" NAME="main Coverage Results" MODIFIED="1734284183799" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app" />
+    <SUITE FILE_PATH="coverage/Sberic_api$main.coverage" NAME="main Coverage Results" MODIFIED="1734285494837" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app" />
     <SUITE FILE_PATH="coverage/Sberic_api$database__1_.coverage" NAME="database (1) Coverage Results" MODIFIED="1728414055750" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app/db" />
     <SUITE FILE_PATH="coverage/Sberic_api$test.coverage" NAME="test Coverage Results" MODIFIED="1732816915795" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app/db/file_manager" />
     <SUITE FILE_PATH="coverage/Sberic_api$database.coverage" NAME="database Coverage Results" MODIFIED="1728322172381" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app/core" />

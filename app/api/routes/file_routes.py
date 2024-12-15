@@ -7,7 +7,7 @@ router = APIRouter(prefix='/file', tags=['file'])
 
 
 @router.get('/')
-async def get_file(file_name: str):
+async def get_minio_file(file_name: str):
     try:
         response = get_file(file_name)
         return StreamingResponse(
